@@ -1,0 +1,71 @@
+import React from "react";
+import Map, { Marker, Source, Layer } from "react-map-gl";
+import maplibregl from "maplibre-gl";
+import tourists from "../data/tourists.json";
+
+const MapView = () => {
+  const initialView = {
+    longitude: 91.876,
+    latitude: 25.572,
+    zoom: 13,
+  };
+
+  const dangerZone = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Polygon",
+          coordinates: [
+            [
+              [91.87, 25.57],
+              [91.88, 25.57],
+              [91.88, 25.58],
+              [91.87, 25.58],
+              [91.87, 25.57],
+            ],
+          ],
+        },
+      },
+    ],
+  };
+
+  return (
+    <Map
+      mapLib={maplibregl}
+      initialViewState={initialView}
+      style={{ width: "100%", height: "100%" }}
+      mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+    >
+      {tourists.map((t) => (
+        <Marker key={t.id} longitude={t.lng} latitude={t.lat} anchor="bottom">
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 7,
+              background:
+                t.status === "SOS"
+                  ? "#ef4444"
+                  : t.status === "Caution"
+                  ? "#f59e0b"
+                  : "#059669",
+              border: "2px solid white",
+            }}
+          />
+        </Marker>
+      ))}
+
+      <Source id="danger" type="geojson" data={dangerZone}>
+        <Layer
+          id="danger-fill"
+          type="fill"
+          paint={{ "fill-color": "#ef4444", "fill-opacity": 0.2 }}
+        />
+      </Source>
+    </Map>
+  );
+};
+
+export default MapView;

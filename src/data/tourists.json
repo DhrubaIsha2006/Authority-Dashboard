@@ -1,0 +1,23 @@
+[
+  {
+    "id": "T001",
+    "name": "Alice Sharma",
+    "status": "Safe",
+    "lat": 25.57,
+    "lng": 91.88
+  },
+  {
+    "id": "T002",
+    "name": "Bob Das",
+    "status": "SOS",
+    "lat": 25.58,
+    "lng": 91.87
+  },
+  {
+    "id": "T003",
+    "name": "Chen Lee",
+    "status": "Caution",
+    "lat": 25.565,
+    "lng": 91.875
+  }
+]

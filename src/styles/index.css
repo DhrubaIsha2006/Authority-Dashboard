@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom small tweaks */
+body { @apply bg-slate-50 text-slate-800; }
+.header { @apply flex items-center justify-between p-4 bg-white shadow-md; }
+.card { @apply bg-white rounded-lg shadow p-4; }
+.sidebar { @apply w-72 bg-white border-r border-slate-200 p-4; }
+.map-area { @apply flex-1 relative; }
+.alerts { @apply absolute top-4 right-4 w-80 bg-white p-4 rounded-lg shadow-lg; }
+.calamity { @apply absolute bottom-4 right-4 w-80 bg-rose-50 p-3 rounded-lg border border-rose-100; }
+.small-btn { @apply inline-block bg-sky-600 text-white px-3 py-1 rounded; }

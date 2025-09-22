@@ -1,0 +1,18 @@
+[
+  {
+    "id": "A001",
+    "touristId": "T002",
+    "type": "Panic",
+    "time": "10:34 AM",
+    "lat": 25.58,
+    "lng": 91.87
+  },
+  {
+    "id": "A002",
+    "touristId": "T003",
+    "type": "GeoFence Breach",
+    "time": "11:05 AM",
+    "lat": 25.566,
+    "lng": 91.876
+  }
+]
