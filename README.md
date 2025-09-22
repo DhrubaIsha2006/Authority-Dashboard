@@ -9,19 +9,16 @@ It is an authority-facing dashboard (police/tourism department) showing active t
    npm install
    ```
 
-2. Create `.env.local` in project root with your Mapbox token:
-   ```
-   REACT_APP_MAPBOX_TOKEN=pk.YOUR_MAPBOX_TOKEN_HERE
-   ```
+
 
    If you don't have a Mapbox token, the app falls back to a placeholder map panel.
 
-3. Start dev server:
+2. Start dev server:
    ```
    npm start
    ```
 
-4. Open http://localhost:3000 and login with:
+3. Open http://localhost:3000 and login with:
    - username: `admin`
    - password: `1234`
 
