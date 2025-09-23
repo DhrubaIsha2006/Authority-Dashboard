@@ -1,9 +1,8 @@
 import React from "react";
 import Map, { Marker, Source, Layer } from "react-map-gl";
 import maplibregl from "maplibre-gl";
-import tourists from "../data/tourists.json";
 
-const MapView = () => {
+const MapView = ({ tourists = [] }) => {
   const initialView = {
     longitude: 91.876,
     latitude: 25.572,
@@ -52,7 +51,9 @@ const MapView = () => {
                   ? "#f59e0b"
                   : "#059669",
               border: "2px solid white",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
             }}
+            title={`${t.name} (${t.id})`}
           />
         </Marker>
       ))}
@@ -61,7 +62,7 @@ const MapView = () => {
         <Layer
           id="danger-fill"
           type="fill"
-          paint={{ "fill-color": "#ef4444", "fill-opacity": 0.2 }}
+          paint={{ "fill-color": "#ef4444", "fill-opacity": 0.12 }}
         />
       </Source>
     </Map>
@@ -69,3 +70,4 @@ const MapView = () => {
 };
 
 export default MapView;
+
