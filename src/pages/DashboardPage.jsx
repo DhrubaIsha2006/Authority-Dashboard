@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // DashboardPage.jsx
 
+=======
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import MapView from "../components/MapView";
@@ -8,6 +11,7 @@ import CalamityPanel from "../components/CalamityPanel";
 
 import initialTourists from "../data/tourists.json";
 import initialAlerts from "../data/alerts.json";
+<<<<<<< HEAD
 
 // Define the danger zone GeoJSON here (or import from separate file)
 const dangerZoneGeoJSON = {
@@ -65,22 +69,38 @@ const dangerZoneGeoJSON = {
 };
 
 const DashboardPage = () => {
+=======
+
+const DashboardPage = () => {
+  // live state
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
   const [tourists, setTourists] = useState(initialTourists);
   const [alerts, setAlerts] = useState(initialAlerts);
 
   // simulate SOS for a specific tourist id
   const simulateSOS = (touristId) => {
+<<<<<<< HEAD
     setTourists(prev =>
       prev.map(t => (t.id === touristId ? { ...t, status: "SOS" } : t))
     );
 
     const t = tourists.find(x => x.id === touristId);
+=======
+    setTourists((prev) =>
+      prev.map((t) =>
+        t.id === touristId ? { ...t, status: "SOS" } : t
+      )
+    );
+
+    const t = tourists.find((x) => x.id === touristId);
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
     const newAlert = {
       id: `A${Date.now()}`,
       touristId,
       type: "Panic",
       time: new Date().toLocaleTimeString(),
       lat: t?.lat ?? 0,
+<<<<<<< HEAD
       lng: t?.lng ?? 0
     };
     setAlerts(prev => [newAlert, ...prev]);
@@ -137,6 +157,42 @@ const DashboardPage = () => {
                 dangerZone={dangerZoneGeoJSON}
               />
             </div>
+=======
+      lng: t?.lng ?? 0,
+    };
+    setAlerts((prev) => [newAlert, ...prev]);
+  };
+
+  // mark all safe (demo reset)
+  const markAllSafe = () => {
+    setTourists((prev) => prev.map((t) => ({ ...t, status: "Safe" })));
+    setAlerts([]);
+  };
+
+  // resolve (remove) alert
+  const resolveAlert = (alertId) => {
+    setAlerts((prev) => prev.filter((a) => a.id !== alertId));
+  };
+
+  // generate e-FIR (we keep pdf generation in AlertsPanel but provide callback)
+  const generateEFIR = (alert) => {
+    // you can forward this to backend later; AlertsPanel already creates PDF
+    console.log("eFIR request for", alert);
+  };
+
+  return (
+    <div className="min-h-screen flex">
+      <Sidebar
+        tourists={tourists}
+        onSimulateSOS={simulateSOS}
+        onMarkAllSafe={markAllSafe}
+      />
+      <div className="map-area flex-1 relative">
+        <div className="header flex items-center justify-between p-4 bg-white shadow">
+          <div>
+            <h3 className="text-lg font-semibold">Tourism Control Center</h3>
+            <div className="text-xs text-slate-500">Live monitoring · Demo region</div>
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
           </div>
 
           <div className="w-80 bg-white border-l overflow-y-auto">
@@ -150,6 +206,20 @@ const DashboardPage = () => {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+
+        <div style={{ height: "calc(100vh - 72px)" }}>
+          <MapView tourists={tourists} />
+        </div>
+
+        <AlertsPanel
+          alerts={alerts}
+          onResolveAlert={resolveAlert}
+          onGenerateEFIR={generateEFIR}
+        />
+        <CalamityPanel />
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
       </div>
     </div>
   );

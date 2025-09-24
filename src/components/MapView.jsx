@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import Map, { Marker, Source, Layer } from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
@@ -11,6 +12,16 @@ const MapView = ({ tourists = [], onAddTourist, onAlert, dangerZone }) => {
   const [viewState, setViewState] = useState({
     longitude: 88.4030,
     latitude: 22.5130,
+=======
+import React from "react";
+import Map, { Marker, Source, Layer } from "react-map-gl";
+import maplibregl from "maplibre-gl";
+
+const MapView = ({ tourists = [] }) => {
+  const initialView = {
+    longitude: 91.876,
+    latitude: 25.572,
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
     zoom: 13,
     pitch: 0,
     bearing: 0,
@@ -67,6 +78,7 @@ const MapView = ({ tourists = [], onAddTourist, onAlert, dangerZone }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div style={{ display: 'flex', height: '100vh', width: '100vw' }}>
       <div style={{ width: '300px', padding: '10px', backgroundColor: '#f5f5f5' }}>
         <TouristForm onAddTourist={handleAddTourist} />
@@ -120,7 +132,45 @@ const MapView = ({ tourists = [], onAddTourist, onAlert, dangerZone }) => {
         </Map>
       </div>
     </div>
+=======
+    <Map
+      mapLib={maplibregl}
+      initialViewState={initialView}
+      style={{ width: "100%", height: "100%" }}
+      mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+    >
+      {tourists.map((t) => (
+        <Marker key={t.id} longitude={t.lng} latitude={t.lat} anchor="bottom">
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 7,
+              background:
+                t.status === "SOS"
+                  ? "#ef4444"
+                  : t.status === "Caution"
+                  ? "#f59e0b"
+                  : "#059669",
+              border: "2px solid white",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+            }}
+            title={`${t.name} (${t.id})`}
+          />
+        </Marker>
+      ))}
+
+      <Source id="danger" type="geojson" data={dangerZone}>
+        <Layer
+          id="danger-fill"
+          type="fill"
+          paint={{ "fill-color": "#ef4444", "fill-opacity": 0.12 }}
+        />
+      </Source>
+    </Map>
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
   );
 };
 
 export default MapView;
+

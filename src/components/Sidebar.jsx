@@ -4,7 +4,11 @@ import clsx from "clsx";
 
 const Sidebar = ({ tourists = [], onSimulateSOS, onMarkAllSafe }) => {
   return (
+<<<<<<< HEAD
     <aside className="w-180 bg-black border-r border-slate-200 p-4 overflow-y-auto">
+=======
+    <aside className="w-80 bg-white border-r border-slate-200 p-4 overflow-y-auto">
+>>>>>>> 05fe2464aa1ee92116b9ef0c87f67222ee1a6f33
       <div className="header mb-3">
         <h2 className="text-lg font-semibold">Tourist Safety Control</h2>
         <div className="text-xs text-slate-500">Authority Portal · Demo</div>
