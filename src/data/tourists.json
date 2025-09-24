@@ -4,20 +4,19 @@
     "name": "Alice Sharma",
     "status": "Safe",
     "lat": 25.57,
-    "lng": 91.88
+    "lng": 91.88,
+    "kyc": { "nationality": "India", "document": "Aadhaar" },
+    "emergencyContact": "9876543210",
+    "itinerary": ["Shillong Peak", "Elephant Falls", "Mawlynnong Village"]
   },
   {
     "id": "T002",
     "name": "Bob Das",
     "status": "SOS",
     "lat": 25.58,
-    "lng": 91.87
-  },
-  {
-    "id": "T003",
-    "name": "Chen Lee",
-    "status": "Caution",
-    "lat": 25.565,
-    "lng": 91.875
+    "lng": 91.87,
+    "kyc": { "nationality": "India", "document": "Passport" },
+    "emergencyContact": "9123456789",
+    "itinerary": ["Cherrapunji Caves", "Seven Sisters Falls"]
   }
 ]
